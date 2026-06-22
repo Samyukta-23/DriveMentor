@@ -9,7 +9,7 @@ services:
       - key: PORT
         value: 8080
       - key: SPRING_DATASOURCE_URL
-        value: jdbc:postgresql://${drivementor_db.host}:${drivementor_db.port}/${drivementor_db.database}?sslmode=require
+        value: jdbc:postgresql://%drivementor_db.host%:%drivementor_db.port%/%drivementor_db.database%?sslmode=require
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
           name: drivementor_db

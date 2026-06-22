@@ -8,8 +8,18 @@ services:
     envVars:
       - key: PORT
         value: 8080
-      - key: SPRING_DATASOURCE_URL
-        value: jdbc:postgresql://%drivementor_db.host%:%drivementor_db.port%/%drivementor_db.database%?sslmode=require
+      - key: DB_HOST
+        fromDatabase:
+          name: drivementor_db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: drivementor_db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: drivementor_db
+          property: database
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
           name: drivementor_db
@@ -18,6 +28,8 @@ services:
         fromDatabase:
           name: drivementor_db
           property: password
+      - key: DB_SSL_MODE
+        value: require
 
 databases:
   - name: drivementor_db

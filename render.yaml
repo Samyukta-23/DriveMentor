@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: drivementor-backend
+    env: docker
+    plan: free
+    dockerContext: backend
+    dockerfilePath: backend/Dockerfile
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:postgresql://${drivementor_db.host}:${drivementor_db.port}/${drivementor_db.database}?sslmode=require
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: drivementor_db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: drivementor_db
+          property: password
+
+databases:
+  - name: drivementor_db
+    databaseName: drive_mentor
+    user: postgres
+    plan: free

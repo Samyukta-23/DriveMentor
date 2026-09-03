@@ -153,5 +153,3 @@ Chennai · Coimbatore · Madurai · Bengaluru · Hyderabad · Mumbai · Delhi ·
 **Design patterns**: Glassmorphism cards · Speedometer gauge · Neon glow effects · Framer Motion animations
 
 ---
-
-*Built for hackathon demo · Powered by real Spring Boot + PostgreSQL*
